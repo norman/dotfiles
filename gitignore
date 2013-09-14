@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+.bundle
+.tags
+*.rbc
+doc
+.yardoc
+.env.sh

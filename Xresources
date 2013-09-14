@@ -1,0 +1,21 @@
+XTerm*faceName: Inconsolata
+XTerm*faceSize: 11
+XTerm*utf8: 1
+
+xterm*saveLines: 1000
+xterm*jumpScroll: true
+!xterm*awaitInput: true
+!!xterm*multiScroll: true
+!
+!XTerm*scrollBar: false
+!xterm*scrollbar*thickness: 16
+!xterm*rightScrollBar: true
+!
+XTerm*foreground: white
+XTerm*background: black
+!!XTerm*background: black
+!XTerm*cursorColor: yellow
+!
+!xterm*visualBell: false
+!
+!xterm*loginShell: true
