@@ -7,13 +7,7 @@ export LC_CTYPE UTF8
 export NODE_PATH=/usr/local/lib/node_modules
 
 export CC=/usr/local/bin/gcc-4.2
-export RBENV_VERSION=2.0.0-p195
-
-export RUBY_HEAP_MIN_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_FREE_MIN=500000
+export RBENV_VERSION=2.1.1
 
 export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
 export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
