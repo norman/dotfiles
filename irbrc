@@ -13,7 +13,7 @@ if File.exist?('./init.rb')
 end
 
 if defined?(Rails)
-  # include Rails.application.routes_url_helpers
+  include Rails.application.routes.url_helpers
 end
 
 at_exit do
