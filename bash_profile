@@ -24,5 +24,6 @@ alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached
 
 alias tmux="TERM=screen-256color-bce tmux"
 alias bake='bundle exec rake'
+alias bopen='EDITOR=mate bundle open'
 
 eval "$(rbenv init -)"
