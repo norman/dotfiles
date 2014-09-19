@@ -1,4 +1,4 @@
-export BASE_PATH=~/.luav/current/bin:~/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/lib/luarocks/bin:/Applications/Xcode.app/Contents/Developer/usr/bin
+export BASE_PATH=~/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/lib/luarocks/bin:/Applications/Xcode.app/Contents/Developer/usr/bin
 export PATH=$BASE_PATH
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
