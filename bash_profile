@@ -31,3 +31,4 @@ alias bopen='EDITOR=mate bundle open'
 alias bspec='bundle exec rspec'
 
 eval "$(rbenv init -)"
+eval "$(direnv hook bash)"
