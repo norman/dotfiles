@@ -25,7 +25,7 @@ alias gpr='git pull --rebase'
 alias gb='git branch'
 alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'
 
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="tmux -2"
 alias bake='bundle exec rake'
 alias bopen='EDITOR=mate bundle open'
 alias bspec='bundle exec rspec'
