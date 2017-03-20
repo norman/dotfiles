@@ -1,0 +1,10 @@
+rename-session Work
+rename-window shell
+new-window -n shell
+new-window -n psql
+new-window -n servers
+split-window -v
+split-window -h
+select-pane -D
+split-window -h
+select-window -t0
