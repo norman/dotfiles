@@ -1,14 +1,13 @@
 source ~/.bashrc
 
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-  . $(brew --prefix)/share/bash-completion/bash_completion
+if [ -f /usr/local/etc/bash_completion ]; then
+  . /usr/local/etc/bash_completion
 fi
 
 export PS1='$ '
-export EDITOR=vim
-export PAGER=less
 
-PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
+export EDITOR=vim
+export PAGER="less -X"
 
 alias ls="ls -G"
 alias less='less -R'
@@ -29,6 +28,8 @@ alias tmux="tmux -2"
 alias bake='bundle exec rake'
 alias bopen='EDITOR=mate bundle open'
 alias bspec='bundle exec rspec'
+alias bap='bundle exec cap'
+alias bruby='bundle exec ruby'
 
 eval "$(rbenv init -)"
 eval "$(direnv hook bash)"
