@@ -1,12 +1,43 @@
---exclude=.git
---exclude=log
---exclude=tmp
---exclude=*.min.js
---exclude=jquery.*.js
---exclude=jquery-*.js
---exclude=vendor
---languages=-html
---fields=+K
+--recurse=yes
 
---regex-ruby=/(^|;)[ \t]*(class|module)[ \t]+([A-Z][[:alnum:]_]+(::[A-Z][[:alnum:]_]+)+)/\3/c,class,constant/
---regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
+--exclude=*.min.js
+--exclude=*.min.css
+--exclude=*.json
+--exclude=*.map
+--exclude=.backup
+--exclude=.sass-cache
+--exclude=vendor
+--exclude=vendors
+--exclude=.git
+--exclude=config
+--exclude=db
+--exclude=public
+--exclude=node_modules
+--exclude=spec/fixtures
+
+--langmap=css:.css
+--langmap=css:+.sass
+--langmap=css:+.styl
+--langmap=css:+.less
+--regex-css=/^[ \t]*\.([A-Za-z0-9_-]+)/.\1/c,class,classes/
+--regex-css=/^[ \t]*#([A-Za-z0-9_-]+)/#\1/i,id,ids/
+--regex-css=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
+--regex-css=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/
+
+--langdef=scss
+--langmap=scss:.scss
+--regex-scss=/^[ \t]*@mixin ([A-Za-z0-9_-]+)/\1/m,mixin,mixins/
+--regex-scss=/^[ \t]*\$([A-Za-z0-9_-]+)/\1/v,variable,variables/
+--regex-scss=/^([A-Za-z0-9_-]*)*(\.[A-Za-z0-9_-]+) *[,{]/\2/c,class,classes/
+--regex-scss=/^[ \t]+(\.[A-Za-z0-9_-]+) *[,{]/\1/c,class,classes/
+--regex-scss=/^(.*)*\#([A-Za-z0-9_-]+) *[,{]/\2/i,id,ids/
+--regex-scss=/^[ \t]*#([A-Za-z0-9_-]+)/\1/i,id,ids/
+--regex-scss=/(^([A-Za-z0-9_-])*([A-Za-z0-9_-]+)) *[,|\{]/\1/t,tag,tags/
+--regex-scss=/(^([^\/\/])*)[ \t]+([A-Za-z0-9_-]+)) *[,|\{]/\3/t,tag,tags/
+--regex-scss=/(^(.*, *)([A-Za-z0-9_-]+)) *[,|\{]/\3/t,tag,tags/
+--regex-scss=/(^[ \t]+([A-Za-z0-9_-]+)) *[,|\{]/\1/t,tag,tags/
+--regex-scss=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/d,media,media/
+
+--regex-ruby=/^[[:space:]]*attr_(reader|writer|accessor)[[:space:]]+:([a-z0-9_?]+)/\2/
+--regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/a,association,Active Record association/
+--regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/s,scope,ActiveRecord scope/
