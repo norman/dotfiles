@@ -8,6 +8,7 @@ export PS1='$ '
 
 export EDITOR=vim
 export PAGER="less -X"
+export CSCOPE_DB=cscope.out
 
 alias ls="ls -G"
 alias less='less -R'
