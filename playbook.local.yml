@@ -1,0 +1,56 @@
+---
+  -
+    hosts: all
+    become: yes
+    become_user: root
+    become_method: sudo
+
+    vars:
+      localuser: "ubuntu"
+      localgroup: "users"
+      localshell: "/bin/bash"
+      ruby_version: "2.4.1"
+
+    tasks:
+      - name: "Add some packages I like"
+        apt: pkg={{item}} state=present
+        with_items:
+          - cscope
+
+      - name: "Add some Rubygems I like"
+        command: "chruby-exec ruby-{{ruby_version}} -- gem install {{item}}"
+        become: yes
+        become_user: "{{localuser}}"
+        with_items:
+          - starscope
+
+
+      - name: "Add some lines to .bash_profile"
+        lineinfile: dest="/home/{{localuser}}/.bash_profile" line="{{item}}"
+        with_items:
+          - "export PS1='→ '"
+          - "alias irb='irb --simple-prompt --readline'"
+          - "alias gs='git status'"
+          - "alias gl='git log'"
+          - "alias gc='git commit'"
+          - "alias gca='git commit --amend'"
+          - "alias ga='git add'"
+          - "alias gap='git add -p'"
+          - "alias gp='git pull'"
+          - "alias gpr='git pull --rebase'"
+          - "alias gb='git branch'"
+          - "alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'"
+          - "alias tmux='tmux -2'"
+          - "alias bake='bundle exec rake'"
+
+      - name: "Make directory for Tmux config"
+        file: path=/home/{{localuser}}/.tmux state=directory owner={{localuser}} group={{localgroup}} mode=0755
+
+      - name: "Copy personal Tmux config"
+        copy: src=/Users/norman/.tmux/work dest=/home/{{localuser}}/.tmux/work group={{localgroup}} owner={{localuser}} mode=0644
+
+      - name: "Install Tmux Gitbar"
+        command: "git clone https://github.com/aurelien-rainone/tmux-gitbar.git /home/{{localuser}}/.tmux-gitbar"
+        become: no
+        args:
+          creates: "/home/{{localuser}}/.tmux-gitbar/README.md"
