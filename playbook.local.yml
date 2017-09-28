@@ -30,6 +30,7 @@
         lineinfile: dest="/home/{{localuser}}/.bash_profile" line="{{item}}"
         with_items:
           - "export PS1='→ '"
+          - "export EDITOR=vim"
           - "alias irb='irb --simple-prompt --readline'"
           - "alias gs='git status'"
           - "alias gl='git log'"
