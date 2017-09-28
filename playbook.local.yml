@@ -44,6 +44,7 @@
           - "alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'"
           - "alias tmux='tmux -2'"
           - "alias bake='bundle exec rake'"
+          - "alias ag='ag --pager=more'"
 
       - name: "Make directory for Tmux config"
         file: path=/home/{{localuser}}/.tmux state=directory owner={{localuser}} group={{localgroup}} mode=0755
