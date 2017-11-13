@@ -8,6 +8,7 @@ export PS1='$ '
 export EDITOR=vim
 export PAGER="less"
 export CSCOPE_DB=cscope.out
+export DIRENV_LOG_FORMAT=
 
 alias ls="ls -G"
 alias irb='irb --simple-prompt --readline'
