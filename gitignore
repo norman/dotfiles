@@ -6,3 +6,6 @@
 doc
 .yardoc
 .env.sh
+*.out
+ruby_tags
+ruby.db
