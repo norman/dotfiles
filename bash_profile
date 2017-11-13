@@ -28,3 +28,4 @@ alias tmux="tmux -2"
 
 eval "$(rbenv init -)"
 eval "$(direnv hook bash)"
+eval "$(/Users/norman/work/est/bin/est init -)"
