@@ -5,13 +5,11 @@ if [ -f /usr/local/etc/bash_completion ]; then
 fi
 
 export PS1='$ '
-
 export EDITOR=vim
-export PAGER="less -X"
+export PAGER="less"
 export CSCOPE_DB=cscope.out
 
 alias ls="ls -G"
-alias less='less -R'
 alias irb='irb --simple-prompt --readline'
 
 alias gs='git status'

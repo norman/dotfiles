@@ -5,4 +5,5 @@ export HISTSIZE=10000
 shopt -s histappend
 export LC_CTYPE UTF8
 export RBENV_VERSION=2.4.1
+export LESS="-R"
 # export JAVA_HOME=$(/usr/libexec/java_home)
