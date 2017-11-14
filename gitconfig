@@ -1,0 +1,31 @@
+[user]
+  name = Norman Clarke
+  email = norman@njclarke.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[merge]
+  tool = opendiff
+[alias]
+  deploys = log --merges --pretty=format:'%Cgreen%cd%Creset %s' --date=local --grep='pull request'
+  recent = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -20
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[core]
+  whitespace = fix
+  excludesfile = /Users/norman/.gitignore
+[github]
+  user = norman
+  token = abc123
+[apply]
+  whitespace = nowarn
+[push]
+  default = current
+[branch]
+  autosetuprebase = always
+
+[rerere]
+	enabled = true
+[credential]
+	helper = osxkeychain
