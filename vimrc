@@ -125,3 +125,8 @@ let g:rubycomplete_load_gemfile = 1
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
+
+" Experimental
+let g:is_posix=1
+set synmaxcol=300
+" au! vimStartup BufReadPost
