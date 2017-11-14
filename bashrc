@@ -1,4 +1,4 @@
-export BASE_PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export BASE_PATH=~/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$BASE_PATH
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
