@@ -18,9 +18,6 @@ Plugin 'tpope/vim-fugitive'
 " Quoting
 Plugin 'tpope/vim-surround'
 
-" Automate tab/indent settings
-Plugin 'tpope/vim-sleuth'
-
 " Fuzzy finding
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
@@ -89,6 +86,23 @@ set hidden
 " Reread externally changed files when buffer has no edits
 set autoread
 
+" Indentation
+set shiftwidth=2
+set smartindent
+set smarttab
+set tabstop=2
+set expandtab
+
+" Open new splits to the bottom right
+set splitbelow
+set splitright
+
+" Stop from accidentally entering ex mode.
+nnoremap Q <nop>
+
+" Don't screw up Makefiles
+autocmd FileType make set noexpandtab
+
 " FZF setup
 nmap <silent> <leader>f :Files<CR>
 nmap <silent> <leader>t :Tags<CR>
@@ -129,4 +143,3 @@ let g:rubycomplete_rails = 1
 " Experimental
 let g:is_posix=1
 set synmaxcol=300
-" au! vimStartup BufReadPost
