@@ -1,4 +1,3 @@
-rename-session Work
 rename-window shell
 new-window -n shell
 new-window -n psql
