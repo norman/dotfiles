@@ -3,6 +3,8 @@ source $VIMRUNTIME/defaults.vim
 
 " begin vundle setup
 filetype off
+" LilyPond
+set rtp+=~/Applications/LilyPond.app/Contents/Resources/share/lilypond/current/vim
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
