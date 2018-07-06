@@ -34,7 +34,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'w0rp/ale'
 
 " Postgres syntax highlighting
-Plugin 'exu/pgsql.vim'
+" Plugin 'exu/pgsql.vim'
+Plugin 'Prosumma/vim-pgsql'
 
 " Tests	
 Plugin 'tpope/vim-dispatch'
@@ -49,6 +50,9 @@ Plugin 'chazy/cscope_maps'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
+
+" Align assignments
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 filetype plugin indent on 
@@ -145,3 +149,20 @@ let g:rubycomplete_rails = 1
 " Experimental
 let g:is_posix=1
 set synmaxcol=300
+
+" Linting
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+if exists(":Tabularize")
+  nmap <Leader>h :Tabularize /=><CR>
+  vmap <Leader>h :Tabularize /=><CR>
+  nmap <Leader>j :Tabularize /:\zs<CR>
+  vmap <Leader>j :Tabularize /:\zs<CR>
+endif
+
+" For MacVim
+set guifont=Inconsolata\ Nerd\ Font:h16
+set guicursor+=n-v-c:blinkon0
