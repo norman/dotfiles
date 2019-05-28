@@ -12,7 +12,6 @@ export DIRENV_LOG_FORMAT=
 
 alias ls="ls -G"
 alias irb='irb --simple-prompt --readline'
-
 alias gs='git status'
 alias gl='git log'
 alias gc='git commit'
@@ -23,8 +22,6 @@ alias gp='git pull'
 alias gpr='git pull --rebase'
 alias gb='git branch'
 alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'
-
-alias tmux="tmux -2"
 
 eval "$(rbenv init -)"
 eval "$(direnv hook bash)"
