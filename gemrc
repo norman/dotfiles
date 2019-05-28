@@ -1,0 +1,2 @@
+# No rdoc or ri on install or update
+gem: --no-document
