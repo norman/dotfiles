@@ -58,7 +58,7 @@ call vundle#end()
 filetype plugin indent on 
 " end vundle setup
 
-colorscheme flattened_dark
+colorscheme flattened_light
 
 " Paren/block matching
 runtime! macros/matchit.vim
