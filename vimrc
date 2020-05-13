@@ -54,6 +54,9 @@ Plugin 'vim-ruby/vim-ruby'
 " Align assignments
 Plugin 'godlygeek/tabular'
 
+" Trim trailing whitespace
+Plugin 'csexton/trailertrash.vim'
+
 call vundle#end()
 filetype plugin indent on 
 " end vundle setup
@@ -166,3 +169,5 @@ endif
 " For MacVim
 set guifont=Inconsolata\ Nerd\ Font:h16
 set guicursor+=n-v-c:blinkon0
+
+hi UnwantedTrailerTrash guibg=red ctermbg=red
