@@ -11,3 +11,5 @@ ruby_tags
 ruby.db
 config/docker-compose.yml
 .starscope.db
+.envrc
+local.rake

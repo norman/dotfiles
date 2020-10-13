@@ -8,6 +8,6 @@ Metrics/MethodLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 Metrics/LineLength:
-  Max: 124
+  Max: 120
 Metrics/PerceivedComplexity:
   Max: 10

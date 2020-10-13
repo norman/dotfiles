@@ -1,7 +1,7 @@
 rename-window shell
 new-window -n shell
-new-window -n psql
-new-window -n servers
+new-window -n shell
+new-window -n shells
 split-window -v
 split-window -h
 select-pane -D
