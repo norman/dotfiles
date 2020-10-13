@@ -37,7 +37,7 @@ Plugin 'w0rp/ale'
 " Plugin 'exu/pgsql.vim'
 Plugin 'Prosumma/vim-pgsql'
 
-" Tests	
+" Tests
 Plugin 'tpope/vim-dispatch'
 Plugin 'janko-m/vim-test'
 
@@ -46,7 +46,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 
 " CScope
-Plugin 'chazy/cscope_maps'
+Plugin 'joe-skb7/cscope-maps'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -57,8 +57,12 @@ Plugin 'godlygeek/tabular'
 " Trim trailing whitespace
 Plugin 'csexton/trailertrash.vim'
 
+" Status line
+Plugin 'itchyny/lightline.vim'
+Plugin 'maximbaz/lightline-ale'
+
 call vundle#end()
-filetype plugin indent on 
+filetype plugin indent on
 " end vundle setup
 
 colorscheme flattened_light
@@ -77,8 +81,8 @@ if executable('ag')
   set grepprg=ag\ --vimgrep
 end
 
-" Highlight beyond column 124 to avoid long lines
-let &colorcolumn=join(range(124,999),",")
+" Highlight beyond column 120 to avoid long lines
+let &colorcolumn=join(range(120,999),",")
 
 " Line numbers
 set number
@@ -142,22 +146,70 @@ nmap <silent> <leader>s :set nolist!<CR>
 nmap <silent> <leader>p :set invpaste paste?<CR>
 nmap <silent> <leader>n :set invnumber number?<CR>
 
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
-autocmd FileType haml set omnifunc=rubycomplete#Complete
-let g:rubycomplete_load_gemfile = 1
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
+" autocmd FileType ruby set omnifunc=rubycomplete#Complete
+" autocmd FileType haml set omnifunc=rubycomplete#Complete
+" let g:rubycomplete_load_gemfile = 1
+" let g:rubycomplete_buffer_loading = 1
+" let g:rubycomplete_classes_in_global = 1
+" let g:rubycomplete_rails = 1
 
 " Experimental
 let g:is_posix=1
 set synmaxcol=300
 
 " Linting
-" In ~/.vim/vimrc, or somewhere similar.
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'javascriptreact': ['eslint'],
+\   'ruby': ['rubocop'],
 \}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'javascriptreact': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+let g:ale_sign_error = '✕'
+let g:ale_sign_warning = '☞'
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" let g:ale_echo_msg_format = '%linter%: %s'
+let g:ale_echo_msg_format='%linter% %severity% (%code%): %s'
+let g:ale_loclist_msg_format='%linter% %severity% (%code%): %s'
+let g:ale_completion_enabled = 1
+nmap <silent> <leader>x :ALEFix<CR>
+
+
+" Set up lightline
+set noshowmode
+set laststatus=2
+set cmdheight=1
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+			\ 'component_function': {
+			\   'gitbranch': 'FugitiveHead'
+			\ },
+      \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+
+let g:lightline.active = { 'right': [[ 'gitbranch', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 
 if exists(":Tabularize")
   nmap <Leader>h :Tabularize /=><CR>
