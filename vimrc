@@ -76,9 +76,9 @@ set vb
 " Use comma as leader
 let mapleader=","
 
-" Use ag over grep
-if executable('ag')
-  set grepprg=ag\ --vimgrep
+" Use RipGrep over grep
+if executable('rg')
+  set grepprg=rg\ --vimgrep
 end
 
 " Highlight beyond column 120 to avoid long lines

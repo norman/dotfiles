@@ -24,8 +24,8 @@ export DIRENV_LOG_FORMAT=
 # Don't use pager if output fits on single screen
 export GIT_PAGER="less -F -X"
 
-# Make fzf repsect .gitignore files
-export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+# Use RipGrep with fzw and Vim
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
 alias ls="ls -G"
 alias irb='irb --simple-prompt --readline'
