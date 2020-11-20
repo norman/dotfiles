@@ -146,12 +146,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 nmap <silent> <leader>p :set invpaste paste?<CR>
 nmap <silent> <leader>n :set invnumber number?<CR>
 
-" autocmd FileType ruby set omnifunc=rubycomplete#Complete
-" autocmd FileType haml set omnifunc=rubycomplete#Complete
-" let g:rubycomplete_load_gemfile = 1
-" let g:rubycomplete_buffer_loading = 1
-" let g:rubycomplete_classes_in_global = 1
-" let g:rubycomplete_rails = 1
+" Simple completion
+set tags+=./tags
+set omnifunc=syntaxcomplete#Complete
 
 " Experimental
 let g:is_posix=1
