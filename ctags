@@ -1,5 +1,7 @@
 --recurse=yes
 --exclude=*.min.js
+--exclude=*.config.js
+--exclude=*.html
 --exclude=*.min.css
 --exclude=*.json
 --exclude=*.map
@@ -11,8 +13,9 @@
 --exclude=config
 --exclude=db
 --exclude=public
+--exclude=tmp
 --exclude=node_modules
---exclude=spec/fixtures
+--exclude=spec
 
 --langmap=css:.css
 --langmap=css:+.sass
