@@ -11,7 +11,7 @@ bindkey -e
 export BASE_PATH=~/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/local/bin
 export PATH=$BASE_PATH
 export LC_CTYPE UTF8
-export RBENV_VERSION=2.7.2
+export RBENV_VERSION=3.0.1
 export LESS="-R"
 
 export PS1='$ '
@@ -24,6 +24,8 @@ export DIRENV_LOG_FORMAT=
 
 # Don't use pager if output fits on single screen
 export GIT_PAGER="less -F -X"
+# Open commit messages in insert mode at beginning of buffer
+export GIT_EDITOR="vim -c'startinsert|norm! ggA'"
 
 # Use RipGrep with fzw and Vim
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"

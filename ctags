@@ -11,11 +11,10 @@
 --exclude=vendors
 --exclude=.git
 --exclude=config
---exclude=db
 --exclude=public
 --exclude=tmp
 --exclude=node_modules
---exclude=spec
+--exclude=*.yaml
 
 --langmap=css:.css
 --langmap=css:+.sass
@@ -29,3 +28,6 @@
 --regex-ruby=/^[[:space:]]*attr_(reader|writer|accessor)[[:space:]]+:([a-z0-9_?]+)/\2/
 --regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/x,association,Active Record association/
 --regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/s,scope,ActiveRecord scope/
+--regex-ruby=/^ActiveAdmin.register ([A-Za-z0-9]+)/\1/c/
+--regex-ruby=/^ActiveAdmin.register_page "([A-Za-z0-9]+)"/\1/c/
+--regex-ruby=/^.*describe ([A-Za-z0-9]+)/\1/d/

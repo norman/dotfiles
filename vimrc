@@ -79,8 +79,8 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 end
 
-" Highlight beyond column 120 to avoid long lines
-let &colorcolumn=join(range(120,999),",")
+" Highlight beyond column 125 avoid long lines
+let &colorcolumn=join(range(125,999),",")
 
 " Line numbers
 set number
@@ -147,10 +147,16 @@ nmap <silent> <leader>n :set invnumber number?<CR>
 " Simple completion
 set tags+=./tags
 set omnifunc=syntaxcomplete#Complete
+set complete=.,b,u,]
+
+" Ruby indenting
+let g:ruby_indent_assignment_style = 'variable'
 
 " Experimental
 let g:is_posix=1
 set synmaxcol=300
+set wildmode=longest,list:longest
+set completeopt=menu,preview
 
 " Linting
 let g:ale_linters = {
@@ -218,3 +224,4 @@ set guifont=Inconsolata\ Nerd\ Font:h16
 set guicursor+=n-v-c:blinkon0
 
 hi UnwantedTrailerTrash guibg=red ctermbg=red
+au BufRead,BufNewFile *.arb set filetype=ruby
