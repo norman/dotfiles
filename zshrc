@@ -8,7 +8,7 @@ autoload -Uz compinit ; compinit -u
 precmd() { eval "$PROMPT_COMMAND" }
 bindkey -e
 
-export BASE_PATH=~/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/local/bin
+export BASE_PATH=~/bin:~/.rbenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/local/bin
 export PATH=$BASE_PATH
 export LC_CTYPE UTF8
 export RBENV_VERSION=3.0.1
