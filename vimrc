@@ -32,25 +32,17 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'w0rp/ale'
 
 " Postgres syntax highlighting
-" Plugin 'exu/pgsql.vim'
 Plugin 'Prosumma/vim-pgsql'
 
 " Tests
-Plugin 'tpope/vim-dispatch'
-Plugin 'janko-m/vim-test'
+Plugin 'vim-test/vim-test'
 
 " File viewing
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 
-" CScope
-Plugin 'joe-skb7/cscope-maps'
-
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
-
-" Align assignments
-Plugin 'godlygeek/tabular'
 
 " Trim trailing whitespace
 Plugin 'csexton/trailertrash.vim'
@@ -129,7 +121,7 @@ autocmd FileType ruby,javascript,lua,bash,haml,html autocmd BufWritePre <buffer>
 set clipboard=unnamed
 
 " Tests
-let test#strategy = "dispatch"
+let test#strategy = "vimterminal"
 nmap <silent> <leader>N :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>L :TestLast<CR>
@@ -146,8 +138,10 @@ nmap <silent> <leader>n :set invnumber number?<CR>
 
 " Simple completion
 set tags+=./tags
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
 set complete=.,b,u,]
+" Show list of tags when there are multiple matches
+set cscopetag
 
 " Ruby indenting
 let g:ruby_indent_assignment_style = 'variable'
@@ -162,7 +156,7 @@ set completeopt=menu,preview
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'javascriptreact': ['eslint'],
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'solargraph'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -175,11 +169,14 @@ let g:ale_linters_explicit = 1
 let g:ale_sign_error = '✕'
 let g:ale_sign_warning = '☞'
 let g:ale_statusline_format = ['X %d', '? %d', '']
-" let g:ale_echo_msg_format = '%linter%: %s'
-let g:ale_echo_msg_format='%linter% %severity% (%code%): %s'
-let g:ale_loclist_msg_format='%linter% %severity% (%code%): %s'
-let g:ale_completion_enabled = 1
+let g:ale_echo_msg_format = '%linter% %severity% (%code%): %s'
+let g:ale_loclist_msg_format = '%linter% %severity% (%code%): %s'
+let g:ale_completion_enabled = 0
+let g:ale_completion_autoimport = 1
 nmap <silent> <leader>x :ALEFix<CR>
+nnoremap gd :ALEGoToDefinition<CR>
+nnoremap gr :ALEFindReferences<CR>
+nnoremap K :ALEHover<CR>
 
 
 " Set up lightline
@@ -212,16 +209,9 @@ let g:lightline.component_type = {
 
 let g:lightline.active = { 'right': [[ 'gitbranch', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 
-if exists(":Tabularize")
-  nmap <Leader>h :Tabularize /=><CR>
-  vmap <Leader>h :Tabularize /=><CR>
-  nmap <Leader>j :Tabularize /:\zs<CR>
-  vmap <Leader>j :Tabularize /:\zs<CR>
-endif
-
 " For MacVim
 set guifont=Inconsolata\ Nerd\ Font:h16
 set guicursor+=n-v-c:blinkon0
 
 hi UnwantedTrailerTrash guibg=red ctermbg=red
-au BufRead,BufNewFile *.arb set filetype=ruby
+au BufRead,BufNewFile *.arb set filetype=ruby 
