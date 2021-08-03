@@ -10,6 +10,7 @@ doc
 ruby_tags
 ruby.db
 config/docker-compose.yml
+config/solargraph.rb
 .starscope.db
 .envrc
 local.rake
