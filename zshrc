@@ -11,7 +11,6 @@ bindkey -e
 export BASE_PATH=~/bin:~/.rbenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/local/bin
 export PATH=$BASE_PATH
 export LC_CTYPE UTF8
-export RBENV_VERSION=3.1.2
 export LESS="-R"
 
 export PS1='$ '
@@ -43,5 +42,4 @@ alias gpr='git pull --rebase'
 alias gb='git branch'
 alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'
 
-eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
