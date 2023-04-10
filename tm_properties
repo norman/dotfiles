@@ -1,4 +1,4 @@
-RBENV_VERSION=3.0.0
+RBENV_VERSION=3.1.2
 RUBYLIB=spec:test
 TM_RUBY = "$HOME/.rbenv/shims/ruby"
 PATH = "$HOME/.rbenv/bin:$PATH"

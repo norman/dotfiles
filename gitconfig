@@ -12,6 +12,7 @@
   deploys = log --merges --pretty=format:'%Cgreen%cd%Creset %s' --date=local --grep='pull request'
   recent = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -20
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  puff = push --force-with-lease
 [core]
   whitespace = fix
   excludesfile = /Users/norman/.gitignore
@@ -29,3 +30,5 @@
 	enabled = true
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main

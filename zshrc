@@ -43,3 +43,4 @@ alias gb='git branch'
 alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'
 
 eval "$(direnv hook zsh)"
+eval "$(nodenv init -)"

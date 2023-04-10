@@ -41,6 +41,7 @@ Plugin 'ryanoasis/vim-devicons'
 " Trim trailing whitespace
 Plugin 'csexton/trailertrash.vim'
 
+" Solargraph
 Plugin 'neoclide/coc.nvim'
 
 call vundle#end()
@@ -121,6 +122,7 @@ let g:test#runner_commands = ['RSpec']
 
 " NerdTree
 nmap <silent> <leader>d :NERDTreeToggle<CR>
+nmap <silent> <leader>F :NERDTreeFind<CR>
 
 " More random keyboard shortcuts
 nmap <silent> <leader>s :set nolist!<CR>
