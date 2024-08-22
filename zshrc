@@ -14,7 +14,7 @@ export LC_CTYPE UTF8
 export LESS="-R"
 
 export PS1='$ '
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER="less"
 export CSCOPE_DB=cscope.out
 
@@ -24,11 +24,12 @@ export DIRENV_LOG_FORMAT=
 # Don't use pager if output fits on single screen
 export GIT_PAGER="less -F -X"
 # Open commit messages in insert mode at beginning of buffer
-export GIT_EDITOR="vim -c'startinsert|norm! ggA'"
+export GIT_EDITOR="nvim -c'startinsert|norm! ggA'"
 
 # Use RipGrep with fzw and Vim
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
+alias vim="nvim"
 alias ls="ls -G"
 alias irb='irb --simple-prompt --readline'
 alias gs='git status'

@@ -11,3 +11,6 @@ Metrics/LineLength:
   Max: 120
 Metrics/PerceivedComplexity:
   Max: 10
+Style/FrozenStringLiteralComment:
+  SafeAutoCorrect: true
+

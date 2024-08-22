@@ -44,6 +44,11 @@ Plugin 'csexton/trailertrash.vim'
 " Solargraph
 Plugin 'neoclide/coc.nvim'
 
+" Tmux
+Plugin 'preservim/vimux'
+
+Plugin 'dhruvasagar/vim-table-mode'
+
 call vundle#end()
 filetype plugin indent on
 " end vundle setup
@@ -92,6 +97,9 @@ set expandtab
 set splitbelow
 set splitright
 
+" Make sure status line is visible so I can see the file path
+set laststatus=2
+
 " Stop from accidentally entering ex mode.
 nnoremap Q <nop>
 
@@ -113,7 +121,7 @@ autocmd FileType ruby,javascript,lua,bash,haml,html autocmd BufWritePre <buffer>
 set clipboard=unnamed
 
 " Tests
-let test#strategy = "vimterminal"
+let test#strategy = "vimux"
 nmap <silent> <leader>N :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>L :TestLast<CR>
@@ -146,6 +154,8 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> <leader>x :call CocActionAsync('format')<CR>
 
+" Markdown tables
+" let g:table_mode_corner='|'
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')

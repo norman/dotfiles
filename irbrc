@@ -1,5 +1,5 @@
 require 'irb/completion'
-require 'irb/ext/save-history'
+# require 'irb/ext/save-history'
 
 ARGV.concat %w(--readline --prompt-mode simple)
 IRB.conf[:SAVE_HISTORY] = 500
