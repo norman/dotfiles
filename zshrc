@@ -42,6 +42,6 @@ alias gp='git pull'
 alias gpr='git pull --rebase'
 alias gb='git branch'
 alias grmall='git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached'
-
+alias approve-merge='gh pr review -a "$@" && gh pr merge -m -d --auto "$@"'
 eval "$(direnv hook zsh)"
 eval "$(nodenv init -)"
